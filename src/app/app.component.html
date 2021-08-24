@@ -1,5 +1,16 @@
 <div id="wrapper">
     <app-header [user]="user"></app-header>
-    <p>Logged In: {{ loggedIn }}</p>
+    <!-- <section *ngIf="!user.registered">
+        <img src="../assets/images/chooseMyPlate.gov.png" alt="" >
+    </section>
+    <section *ngIf="user.registered">
+        <img src="../assets/images/generic-plate.png" alt="" >
+    </section> -->
+    <div [ngSwitch]=loggedIn>
+        <p>Logged In: 
+            <span *ngSwitchCase="false" class="notRegistered">{{ loggedIn }}</span>
+            <span *ngSwitchCase="true">{{ loggedIn }}</span>
+        </p>
+    </div>
     <app-child (login)="logIn($event)"></app-child>
 </div>
