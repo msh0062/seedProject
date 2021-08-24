@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <app-header></app-header>
-    <p>The app is working!</p>
-    <app-child></app-child>
+    <app-header [user]="user"></app-header>
+    <p>Logged In: {{ loggedIn }}</p>
+    <app-child (login)="logIn($event)"></app-child>
 </div>
